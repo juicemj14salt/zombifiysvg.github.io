@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zombie SVG Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="zombie-app">
+    <div class="zombie-header">
+      <h2>🧟 Zombie SVG Converter</h2>
+      <p>Transform any SVG into slick zombie greens with intelligent 3D depth</p>
+    </div>
+
+    <!-- Input moved OUTSIDE the drop zone -->
+    <input type="file" id="fileInput" accept=".svg">
+
+    <div class="upload-zone" id="dropZone">
+      <div class="upload-icon">📁</div>
+      <div class="upload-title">Drop SVG here or click to browse</div>
+      <div class="upload-sub">Supports any valid SVG file</div>
+    </div>
+
+    <div class="controls">
+      <div class="control-group">
+        <label>3D Depth Intensity <span class="value-display" id="depthVal">75%</span></label>
+        <input type="range" id="depthSlider" min="0" max="100" value="75">
+      </div>
+      <div class="control-group">
+        <label>Zombie Green Hue</label>
+        <select id="greenPreset">
+          <option value="toxic">☠️ Toxic Slime (#39FF14)</option>
+          <option value="swamp">🌿 Swamp Moss (#4A7C59)</option>
+          <option value="neon">⚡ Neon Zombie (#7FFF00)</option>
+          <option value="military">🪖 Military Rot (#556B2F)</option>
+          <option value="acid">🧪 Acid Burn (#BFFF00)</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label>Shadow Contrast <span class="value-display" id="contrastVal">60%</span></label>
+        <input type="range" id="contrastSlider" min="0" max="100" value="60">
+      </div>
+      <div class="control-group">
+        <label>Scratch Compatibility <span class="scratch-badge">REQUIRED</span></label>
+        <select id="scratchMode">
+          <option value="strict">Strict (SVG 1.1, no CSS)</option>
+          <option value="compat">Compatible (inline styles)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="preview-area">
+      <div class="preview-box">
+        <h3>🎨 Original</h3>
+        <div class="svg-container" id="originalPreview">
+          <span class="placeholder">Upload an SVG to see preview</span>
+        </div>
+      </div>
+      <div class="preview-box">
+        <h3>🧟 Zombie Green + 3D Depth</h3>
+        <div class="svg-container" id="zombiePreview">
+          <span class="placeholder">Upload an SVG to see preview</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn btn-primary" id="convertBtn" disabled>🧟 Convert to Zombie Green</button>
+      <button class="btn btn-secondary" id="downloadBtn" disabled>💾 Download Scratch-Ready SVG</button>
+      <button class="btn btn-secondary" id="copyBtn" disabled>📋 Copy SVG Code</button>
+    </div>
+
+    <div class="info-box" id="infoBox">
+      <strong>How it works:</strong> The app analyzes each shape's original brightness (luminance) and maps it to a zombie green shade. Darker original colors become deeper, shadowed greens (simulating 3D depth), while lighter colors become brighter toxic greens. All styles are inlined for Scratch compatibility.
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
